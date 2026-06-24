@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useRouter } from 'next/navigation'
 
 const cards = [
   {
@@ -14,6 +15,7 @@ const cards = [
       'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80',
     ],
     position: 'right',
+    href: '/exhibit-01',
   },
   {
     index: 1,
@@ -26,6 +28,7 @@ const cards = [
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
     ],
     position: 'left',
+    href: '/exhibit-02',
   },
   {
     index: 2,
@@ -38,6 +41,7 @@ const cards = [
       'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80',
     ],
     position: 'right',
+    href: '/exhibit-03',
   },
   {
     index: 3,
@@ -50,6 +54,7 @@ const cards = [
       'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80',
     ],
     position: 'left',
+    href: '/exhibit-04',
   },
   {
     index: 4,
@@ -62,6 +67,7 @@ const cards = [
       'https://images.unsplash.com/photo-1545665277-5937489579f2?w=800&q=80',
     ],
     position: 'right',
+    href: '/exhibit-05',
   },
 ]
 
@@ -69,6 +75,7 @@ function ExhibitCard({ card }: { card: typeof cards[0] }) {
   const bgRef = useRef<HTMLDivElement>(null)
   const imgIndex = useRef(0)
   const isHovered = useRef(false)
+  const router = useRouter()
 
   useEffect(() => {
     if (bgRef.current) {
@@ -88,7 +95,7 @@ function ExhibitCard({ card }: { card: typeof cards[0] }) {
       className="card"
       onMouseEnter={() => { isHovered.current = true }}
       onMouseLeave={() => { isHovered.current = false }}
-      onClick={() => console.log(`Opening exhibit ${card.index}`)}
+      onClick={() => router.push(card.href)}
     >
       <div ref={bgRef} className="card-bg" />
       <div className="card-content">

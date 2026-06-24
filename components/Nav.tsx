@@ -105,15 +105,12 @@ export default function Nav() {
         <div className="nav-logo">RexS</div>
       </div>
       <div className="nav-links">
-        <span className="nav-link">Work</span>
-        <span className="nav-link">Services</span>
-        <span className="nav-link">About</span>
-        <span className="nav-link">Contact</span>
+        <a href="https://www.fiverr.com/rexsumpio" target="_blank" rel="noopener noreferrer" className="nav-link nav-contact">Contact</a>
       </div>
       <div className="nav-right">
         <div className="nav-right-stack">
           <svg ref={geckoRef} className="dino" viewBox="0 0 70 55" xmlns="http://www.w3.org/2000/svg" />
-          <span className="nav-link fiverr-link">Fiverr ↗</span>
+          <a href="https://www.fiverr.com/rexsumpio" target="_blank" rel="noopener noreferrer" className="nav-link fiverr-link">Fiverr</a>
         </div>
       </div>
     </nav>
